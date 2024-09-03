@@ -28,6 +28,7 @@ int main(int argc, char *argv[]){
         pid = getpid();
         write(fd[1], "1", 1);
         close(fd[1]);
+        wait(0);
 
         read(fd[0], &content, 1);
         close(fd[0]);
