@@ -3,13 +3,13 @@
 #include "user/user.h"
 
 #define NUN_SIZE 36
-#define ONE "1"
-#define ZERO "0"
+#define ONE '1'
+#define ZERO '0'
 
 void
 prime(int read_pipe, int write_pipe){
     char buf[NUN_SIZE];
-    int val;
+    int val = 0;
 
     read(read_pipe, buf, NUN_SIZE);
     for(int i=0; i<NUN_SIZE; i++){
@@ -42,7 +42,6 @@ void
 main(int argc, char *argv[])
 {
   char num[NUN_SIZE];
-  char number;
   for(int i=0; i<NUN_SIZE; i++){
     num[i] = ONE;
   }
