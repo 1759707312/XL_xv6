@@ -18,7 +18,12 @@ prime(int read_pipe, int write_pipe){
             break;
         }
     }
-    printf("prime %d", val);
+
+    if(val == 0){
+        exit(0);
+    }
+
+    printf("prime %d\n", val);
     buf[val] = ZERO;
 
     for(int i=0; i<NUN_SIZE; i++){
@@ -67,4 +72,5 @@ main(int argc, char *argv[])
         prime(fd[0], fd[1]);
         wait(0);
     }
+    exit(0);
 }
