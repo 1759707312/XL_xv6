@@ -18,12 +18,12 @@ fmtname(char *path)
   if(strlen(p) >= DIRSIZ)
     return p;
   memmove(buf, p, strlen(p));
-  memset(buf+strlen(p), ' ', DIRSIZ-strlen(p));
+  memset(buf+strlen(p), 0, DIRSIZ-strlen(p));
   return buf;
 }
 
-int is_directory(char *path){
-  char *buf = fmtname(path);
+int is_directory(char* path){
+  char* buf = fmtname(path);
   if(buf[0] == '.' && buf[1] == 0){
     return 1;
   }
