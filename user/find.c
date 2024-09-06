@@ -24,10 +24,10 @@ fmtname(char *path)
 
 int is_directory(char *path){
   char *buf = fmtname(path);
-  if(buf[0] == "." && buf[1] == 0){
+  if(buf[0] == '.' && buf[1] == 0){
     return 1;
   }
-  if(buf[0] == "." && buf[1] == "." && buf[2] == "0"){
+  if(buf[0] == '.' && buf[1] == '.' && buf[2] == 0){
     return 1;
   }
   return 0;
@@ -102,4 +102,6 @@ main(int argc, char *argv[])
     find(argv[1], argv[2]);
     exit(0);
   }
+
+  exit(0);
 }
