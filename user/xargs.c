@@ -17,10 +17,10 @@ main(int argc, char* argv[]){
     // 获取命令行参数
     char* xargv[MSGSIZE];
     int xargc = 0;
-    for (int i = 1; i < MSGSIZE; i++)
+    for (int i = 1; i < argc; i++)
     {
         /* code */
-        xargv[i] = argv[i];
+        xargv[xargc] = argv[i];
         xargc++;
     }
     char* p = buf;
