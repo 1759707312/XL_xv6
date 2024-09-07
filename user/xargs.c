@@ -35,7 +35,7 @@ main(int argc, char* argv[]){
             }
             else{
                 // 使用exec执行命令
-                buf[i] == 0;
+                buf[i] = 0;
                 xargv[xargc] = p;
                 xargc++;
                 xargv[xargc] = 0;
