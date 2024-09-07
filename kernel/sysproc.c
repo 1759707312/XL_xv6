@@ -100,5 +100,6 @@ uint64
 sys_trace(void)
 {
   printf("trace");
-  exit(0);
+  
+  return 0;
 }
