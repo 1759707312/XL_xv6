@@ -27,7 +27,7 @@ main(int argc, char* argv[]){
     for (int i = 0; i < MSGSIZE; i++)
     {
         /* code */
-        if(buf[i] == '\n'){
+        if(buf[i] == '\n'){ //echo 命令会在语句最后自动加上/n
             int pid = fork();
             if(pid > 0){
                 p = &buf[i+1];
