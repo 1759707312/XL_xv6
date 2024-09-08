@@ -101,6 +101,7 @@ sys_trace(void)
 {
   printf("trace/n");
   int mask;
+  // 获取运行的掩码
   if(argint(0, &mask) < 0){
     return -1;
   }
