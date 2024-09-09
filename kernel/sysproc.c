@@ -8,6 +8,9 @@
 #include "proc.h"
 #include "sysinfo.h"
 
+extern uint64 acquire_freemem();
+extern uint64 acquire_nproc();
+
 uint64
 sys_exit(void)
 {
