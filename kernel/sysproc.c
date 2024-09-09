@@ -115,8 +115,18 @@ sys_trace(void)
 
 uint64
 sys_sysinfo(void){
-  // struct sysinfo *p;
-  printf("sysinfo\n");
+  struct sysinfo info;
+  uint64 addr;
+  struct proc *p = myproc();
+
+  info.freemem = acquire_freemem();
+  info.freemem = acquire_nproc();
+
+  ifargaddr(0, &addr) < 0)
+    return -1;
+
+  if(copyout(p->pagetable, addr, (char *)&info, sizeof(info)) < 0)
+    return -1;
 
   return 0;
 }
