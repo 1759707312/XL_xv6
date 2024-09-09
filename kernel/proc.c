@@ -164,7 +164,6 @@ freeproc(struct proc *p)
   p->killed = 0;
   p->xstate = 0;
   p->state = UNUSED;
-  p->trace_mask = 0;
 }
 
 // Create a user page table for a given process,
@@ -289,9 +288,6 @@ fork(void)
     return -1;
   }
   np->sz = p->sz;
-
-  // copy trace mask from parent to child.
-  np->trace_mask = p->trace_mask;
 
   // copy saved user registers.
   *(np->trapframe) = *(p->trapframe);
@@ -657,18 +653,4 @@ procdump(void)
     printf("%d %s %s", p->pid, state, p->name);
     printf("\n");
   }
-}
-
-uint64 acquire_nproc(){
-  struct proc *p; 
-  int cnt = 0;
-
-  for(p = proc; p < &proc[NPROC]; p++) {
-    acquire(&p->lock);
-    if(p->state != UNUSED) {
-      cnt++;
-    }
-    release(&p->lock);
-  }
-  return cnt;
 }
