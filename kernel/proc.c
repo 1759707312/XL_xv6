@@ -665,7 +665,7 @@ uint64 acquire_nproc(){
 
   for(p = proc; p < &proc[NPROC]; p++) {
     acquire(&p->lock);
-    if(p->state == UNUSED) {
+    if(p->state != UNUSED) {
       cnt++;
     }
     release(&p->lock);
