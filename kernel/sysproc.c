@@ -122,7 +122,7 @@ sys_sysinfo(void){
   info.freemem = acquire_freemem();
   info.freemem = acquire_nproc();
 
-  ifargaddr(0, &addr) < 0)
+  if(argaddr(0, &addr) < 0)
     return -1;
 
   if(copyout(p->pagetable, addr, (char *)&info, sizeof(info)) < 0)
