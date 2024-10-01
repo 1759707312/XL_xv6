@@ -434,7 +434,7 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
 }
 
 uint64 vmprint(pagetable_t pagetable, uint64 depth){
-  struct proc *p;
-
+  //struct proc *p;
+  printf("hello vmprint");
   return 0;
 }
