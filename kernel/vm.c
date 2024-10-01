@@ -448,7 +448,10 @@ uint64 vmprint(pagetable_t pagetable, uint64 depth){
     if(pte & PTE_V){
       // ..0: pte 0x0000000021fda801 pa 0x0000000087f6a000
       for(int i = 0; i <= depth; i++){
-        printf(".. ");
+        printf("..");
+        if(i != depth){
+          printf(" ");
+        }
       }
       printf("%d: pte %p pa %p\n", i, pte, PTE2PA(pte));
       uint64 child = PTE2PA(pte);
