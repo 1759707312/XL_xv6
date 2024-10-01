@@ -435,6 +435,26 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
 
 uint64 vmprint(pagetable_t pagetable, uint64 depth){
   //struct proc *p;
-  printf("hello vmprint");
+  if (depth > 2){
+    return 0;
+  }
+  if (depth == 0){
+    printf("page table %p\n", pagetable);
+  }
+    // there are 2^9 = 512 PTEs in a page table.
+  for(int i = 0; i < 512; i++){
+
+    pte_t pte = pagetable[i];
+    if(pte & PTE_V){
+      // ..0: pte 0x0000000021fda801 pa 0x0000000087f6a000
+      for(int i = 0; i <= depth; i++){
+        printf(".. ");
+      }
+      printf("%d: pte %p pa %p\n", i, pte, PTE2PA(pte));
+      uint64 child = PTE2PA(pte);
+      vmprint((pagetable_t) child, depth+1);
+
+  }
+
   return 0;
 }
