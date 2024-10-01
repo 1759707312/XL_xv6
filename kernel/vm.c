@@ -453,8 +453,7 @@ uint64 vmprint(pagetable_t pagetable, uint64 depth){
       printf("%d: pte %p pa %p\n", i, pte, PTE2PA(pte));
       uint64 child = PTE2PA(pte);
       vmprint((pagetable_t) child, depth+1);
-
+    }
   }
-
   return 0;
 }
