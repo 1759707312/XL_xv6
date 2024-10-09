@@ -80,7 +80,7 @@ usertrap(void)
   if(which_dev == 2){
     if(p->ticks > 0){
       p->ticks_num++;
-      if(p->ticks_num > ticks){
+      if(p->ticks_num > p->ticks){
         p->ticks_num = 0;
         p->trapframe->epc = p->handler;
       }
