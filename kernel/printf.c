@@ -134,7 +134,7 @@ printfinit(void)
 }
 
 void
-backtrace()
+backtrace(void)
 {
   printf("backtrace\n");
   uint64 fp = r_fp();
