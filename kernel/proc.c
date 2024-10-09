@@ -116,6 +116,7 @@ allocproc(void)
   }
 
   p->ticks_num = 0;
+  p->handler_tag = 0;
 
   return 0;
 

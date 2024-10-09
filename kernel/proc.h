@@ -98,6 +98,7 @@ struct proc {
   uint64 handler;
   uint64 ticks_num;
   struct trapframe saved_trapframe;
+  uint64 handler_tag;
 
 
   // wait_lock must be held when using this:
