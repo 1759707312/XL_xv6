@@ -93,6 +93,12 @@ struct proc {
   int xstate;                  // Exit status to be returned to parent's wait
   int pid;                     // Process ID
 
+  // alarm time 
+  int ticks;
+  uint64 handler;
+  uint64 ticks_num;
+
+
   // wait_lock must be held when using this:
   struct proc *parent;         // Parent process
 

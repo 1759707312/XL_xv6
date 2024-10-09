@@ -114,6 +114,9 @@ allocproc(void)
       release(&p->lock);
     }
   }
+
+  p->ticks_num = 0;
+
   return 0;
 
 found:
