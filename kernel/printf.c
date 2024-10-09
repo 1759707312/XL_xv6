@@ -137,8 +137,13 @@ void
 backtrace(void)
 {
   uint64 fp = r_fp();
-  printf("%p\n", fp);
   uint64* frame = (uint64*)fp;
-  printf("%p\n", frame[-1]);
-  printf("%p\n", frame[-2]);
+  uint64 up = PGROUNDUP(fp);
+  uint64 down = PGROUNDDOWN(fp);
+
+  while (fp < up && fp > down)
+  {
+    printf("%p\n", frame[-1]);  //函数返回地址
+    frame = frame[-2];
+  }  
 }
