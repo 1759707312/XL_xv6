@@ -7,6 +7,8 @@
 #include "spinlock.h"
 #include "proc.h"
 
+void backtrace();
+
 uint64
 sys_exit(void)
 {
