@@ -100,7 +100,7 @@ sys_uptime(void)
 }
 
 uint64
-sigalarm(void)
+sys_sigalarm(void)
 {
   struct proc *p = myproc();
   int ticks;
