@@ -144,6 +144,7 @@ backtrace(void)
   while (fp < up && fp > down)
   {
     printf("%p\n", frame[-1]);  //函数返回地址
-    frame = (uint64*)frame[-2];
+    fp = frame[-2];
+    frame = (uint64*) fp;
   }  
 }
